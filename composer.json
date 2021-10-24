@@ -56,8 +56,8 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "check-cs": "vendor/bin/phpcs --standard=phpcs.xml --report=checkstyle --report-file=var/log/phpcs_report.xml",
-        "psalm": "vendor/bin/psalm --config=psalm.xml --threads=4 --show-info=true"
+        "check-cs": "vendor/bin/phpcs --standard=./phpcs.xml --report=checkstyle --report-file=var/log/phpcs_report.xml",
+        "psalm": "vendor/bin/psalm --config=./psalm.xml --threads=4 --show-info=true"
     },
     "extra": {
         "laravel": {
