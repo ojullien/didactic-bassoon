@@ -19,24 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/departements', function () {
-    return 'departements list';
-})->name('departements');
-
-Route::permanentRedirect('/products', '/departements');
-
-Route::get('/products/{id}', function (int $id) {
-    return 'departement products list:' . $id;
-})->where('id', '[0-9]+')->name('products');
-
-Route::permanentRedirect('/product', '/departements');
-
-Route::get('/product/{id}', function (int $id) {
-    return 'product info:' . $id;
-})->where('id', '[0-9]+')->name('product');
-
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/departements', function (): string {
+        return 'departements list';
+    })->name('departements');
 });
