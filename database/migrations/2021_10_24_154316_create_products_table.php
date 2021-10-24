@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartmentsTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDepartmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
-            $table->unsignedInteger('id')->primary();
+        Schema::create('products', function (Blueprint $table) {
+            $table->string('id', 255)->unique();
+            $table->unsignedInteger('department_id');
             $table->string('label', 255);
-            $table->unsignedInteger('count');
+            $table->json('json');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateDepartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('products');
     }
 }

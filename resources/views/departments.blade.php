@@ -22,7 +22,7 @@
                             <td class="border px-6 py-4">{{ $department->id }}</td>
                             <td class="border px-6 py-4">{{ $department->label }}</td>
                             <td class="border px-6 py-4">{{ $department->count }}</td>
-                            <td class="border px-6 py-4"><a class="text-sm text-gray-700 dark:text-gray-500 underline" href="#">Show products</td>
+                            <td class="border px-6 py-4"><a class="text-sm text-gray-700 dark:text-gray-500 underline" href="{{ route('products.index', $department->id ) }}">Show products</td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\DepartmentsController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::get('/departments', DepartmentsController::class)->name('departments');
+
+    Route::resource('/{department_id}/products', ProductController::class)->except(
+        [
+            'create',
+            'store'
+        ]
+    );
 });
